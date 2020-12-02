@@ -1,5 +1,5 @@
-# Intégration continu, PgSQL, Java 11, Maven Build
-name: PostgreSQL + JDK 11 + Maven build
+# Intégration continu, PgSQL, Java 11, Maven Build, SonarCloud
+name: PostgreSQL + JDK 11 + Maven build + SonarCloud
 
 on:
   push:
