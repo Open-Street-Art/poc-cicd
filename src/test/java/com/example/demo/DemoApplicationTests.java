@@ -1,21 +1,25 @@
 package com.example.demo;
 
-import com.example.demo.controller.TestController;
-
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.util.Assert;
+import org.springframework.test.web.servlet.MockMvc;
+
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @SpringBootTest
+@AutoConfigureMockMvc
 class DemoApplicationTests {
 
 	@Autowired
-	TestController testController;
+	MockMvc mvc;
 
 	@Test
-	void contextLoads() {
-		Assert.isTrue(testController != null, "test");
+	public void test() throws Exception {
+		this.mvc.perform(get("/test")).andExpect(status().isOk())
+				.andExpect(content().string("Ceci est une réponse"));
 	}
 
 }
