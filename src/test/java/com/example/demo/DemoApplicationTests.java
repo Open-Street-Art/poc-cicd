@@ -17,7 +17,7 @@ class DemoApplicationTests {
 	MockMvc mvc;
 
 	@Test
-	public void test() throws Exception {
+	void test() throws Exception {
 		this.mvc.perform(get("/test")).andExpect(status().isOk())
 				.andExpect(content().string("Ceci est une réponse"));
 	}
